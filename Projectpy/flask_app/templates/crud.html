@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD Data Diabetes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+        h2, h3 {
+            margin-bottom: 10px;
+        }
+        form input, form button {
+            padding: 6px;
+            margin: 4px 0;
+            width: 100%;
+        }
+        form {
+            background: #fff;
+            padding: 15px;
+            max-width: 400px;
+            border-radius: 6px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background: #f0f0f0;
+        }
+        a {
+            color: #d93025;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+<h2>CRUD Data Diabetes Jawa Barat</h2>
+
+<h3>Tambah Data</h3>
+<form action="/add" method="post">
+    <input name="kode_provinsi" placeholder="Kode Provinsi" required>
+    <input name="nama_provinsi" placeholder="Nama Provinsi" required>
+    <input name="kode_kabupaten_kota" placeholder="Kode Kab/Kota" required>
+    <input name="nama_kabupaten_kota" placeholder="Nama Kab/Kota" required>
+    <input type="number" name="jumlah_penderita_dm" placeholder="Jumlah DM" required>
+    <input name="satuan" placeholder="Satuan" required>
+    <input type="number" name="tahun" placeholder="Tahun" required>
+    <button type="submit">Tambah Data</button>
+</form>
+
+<h3>Data Tersimpan</h3>
+<table>
+<tr>
+    <th>No</th>
+    <th>Provinsi</th>
+    <th>Kab/Kota</th>
+    <th>Jumlah DM</th>
+    <th>Tahun</th>
+    <th>Aksi</th>
+</tr>
+
+{% for row in data %}
+<tr>
+    <td>{{ loop.index0 }}</td>
+    <td>{{ row.nama_provinsi }}</td>
+    <td>{{ row.nama_kabupaten_kota }}</td>
+    <td>{{ row.jumlah_penderita_dm }}</td>
+    <td>{{ row.tahun }}</td>
+    <td>
+        <a href="/delete/{{ loop.index0 }}"
+           onclick="return confirm('Hapus data ini?')">Hapus</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<a href="/">⬅ Kembali</a>
+</div>
+
+</body>
+</html>

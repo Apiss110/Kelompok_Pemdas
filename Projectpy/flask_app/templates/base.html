@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title if title else "Aplikasi Pandas Flask" }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f9f9f9;
+        }
+
+        h1 {
+            border-bottom: 3px solid #333;
+            padding-bottom: 5px;
+        }
+
+        h2 {
+            margin-top: 35px;
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+            background: white;
+        }
+
+        th {
+            background: #444;
+            color: white;
+            padding: 6px;
+            font-size: 13px;
+        }
+
+        td {
+            border: 1px solid #ccc;
+            padding: 6px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .box {
+            background: white;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-top: 15px;
+        }
+
+        .nav {
+            margin-bottom: 25px;
+        }
+
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="/">Home</a>
+    <a href="/crud">CRUD Data</a>
+    <a href="/data">Analisis Pandas</a>
+    <a href="/grafik">Visualisasi</a>
+</div>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

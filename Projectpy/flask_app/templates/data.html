@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Analisis Data Diabetes Jawa Barat</h1>
+
+<div class="box">
+<h2>SOAL A – Pengenalan DataFrame</h2>
+
+<h3>1. Import library pandas, baca file data_dm_jabar.csv ke dalam DataFrame bernama df, lalu tampilkan 5 baris pertama.</h3>
+{{ a.a1_head_5_baris.to_html() | safe }}
+
+<h3>2. Tampilkan 5 baris terakhir dari df.</h3>
+{{ a.a2_tail_5_baris.to_html() | safe }}
+
+<h3>3.Tampilkan informasi struktur DataFrame </h3>
+{{ a.a3_info_struktur.to_frame("Tipe Data").to_html() | safe }}
+
+<h3>4.	Tampilkan statistik deskriptif untuk kolom numerik (misalnya jumlah_penderita_dm dan tahun)</h3>
+{{ a.a4_statistik_deskriptif.to_html() | safe }}
+
+<h3>5.	Tampilkan daftar nilai unik dari kolom tahun.</h3>
+<ul>
+{% for t in a.a5_nilai_unik_tahun %}
+    <li>{{ t }}</li>
+{% endfor %}
+</ul>
+
+<h3>6.	Tampilkan daftar nilai unik dari kolom nama_kabupaten_kota dan hitung berapa banyak kabupaten/kota yang tercatat. ({{ a.a6_jumlah_kabupaten }})</h3>
+<ul>
+{% for k in a.a6_nilai_unik_kabupaten %}
+    <li>{{ k }}</li>
+{% endfor %}
+</ul>
+
+<h3>7.	Tampilkan hanya kolom:
+nama_kabupaten_kota, jumlah_penderita_dm, dan tahun.
+</h3>
+{{ a.a7_kolom_terpilih.to_html() | safe }}
+</div>
+
+<hr>
+
+<div class="box">
+<h2>SOAL B – Filtering & Sorting</h2>
+
+<h3>8. Data Tahun 2019</h3>
+{{ b.b8_data_tahun_2019.to_html() | safe }}
+
+<h3>9. Jumlah > 100.000</h3>
+{{ b.b9_lebih_100k.to_html() | safe }}
+
+<h3>10. Urut Berdasarkan Jumlah</h3>
+{{ b.b10_sort_jumlah_desc.to_html() | safe }}
+
+<h3>11. Urut Tahun & Jumlah</h3>
+{{ b.b11_sort_tahun_dan_jumlah.to_html() | safe }}
+
+<h3>12. Top 10 Tahun 2019</h3>
+{{ b.b12_top10_2019.to_html() | safe }}
+
+<h3>13. Kabupaten Bogor</h3>
+{{ b.b13_kabupaten_bogor.to_html() | safe }}
+</div>
+
+<hr>
+
+<div class="box">
+<h2>SOAL C – Agregasi & Transformasi</h2>
+
+<h3>14. Total Penderita per Tahun</h3>
+{{ c.c14_total_per_tahun.to_html() | safe }}
+
+<h3>15. Rata-rata per Kabupaten</h3>
+{{ c.c15_rata_per_kabupaten.to_html() | safe }}
+
+<h3>16. Kabupaten Tertinggi & Terendah</h3>
+<p><b>Tertinggi:</b> {{ c.c16_kabupaten_tertinggi }}</p>
+<p><b>Terendah:</b> {{ c.c16_kabupaten_terendah }}</p>
+
+<h3>17–18. Data dengan Kategori & Persentase</h3>
+{{ c.c18_data_dengan_persentase.to_html() | safe }}
+
+<h3>19. Tabel Ringkas</h3>
+{{ c.c19_tabel_ringkas.to_html() | safe }}
+</div>
+
+{% endblock %}

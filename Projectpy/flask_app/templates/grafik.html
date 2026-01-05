@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Visualisasi Data (Matplotlib)</h1>
+
+<div class="box">
+<h3>Grafik 20 – Jumlah Penderita per Kabupaten (2019)</h3>
+<img src="/static/plots/bar_kabupaten_2019.png" width="100%">
+</div>
+
+<div class="box">
+<h3>Grafik 21 – Total Penderita per Tahun</h3>
+<img src="/static/plots/line_total_per_tahun.png" width="100%">
+</div>
+
+<div class="box">
+<h3>Grafik 22 – Top 10 Kabupaten Tahun 2019</h3>
+<img src="/static/plots/barh_top10_2019.png" width="100%">
+</div>
+
+<div class="box">
+<h3>Grafik 23 – Proporsi Kategori DM (2019)</h3>
+<img src="/static/plots/pie_kategori_2019.png" width="60%">
+</div>
+
+<div class="box">
+<h3>Grafik 24 – Perbandingan 3 Tahun Terakhir</h3>
+<img src="/static/plots/bar_3_tahun_terakhir.png" width="80%">
+</div>
+
+{% endblock %}
